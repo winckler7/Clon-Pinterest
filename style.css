@@ -1,20 +1,23 @@
 *{
 font-family: Arial, Helvetica, sans-serif;
+font-size: 16px;
 }
 
-nav{
+#navbar-pinterest{
    display: flex; 
    align-items: center;
    justify-content: center;
    position: fixed;
+   z-index: 10;
+   top:0px ;
+   right:0px ;
+   bottom: 0px;
+   left: 0px;
    background-color: white;
    width: 100vw;
    height: 80px;
    margin:0;
    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 12px;
-   right:0px ;
-    top:0px ;
-    z-index: 10;
 }
 
 .pinterest_logo{
@@ -36,9 +39,27 @@ nav{
     cursor: pointer;
 }
 
+.navbarMovil{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+    top:0px ;
+    right:0px ;
+    bottom: 0px;
+    left: 0px;
+    background-color: white;
+    width: 100%;
+    height: 80px;
+    margin:0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 12px;
+    visibility: hidden;
+}
+
 .search_bar{
     height: 50px;
-    width: 856px;
+    width: 55%;
     border-radius: 30px; 
     background-color: lightgray;
     display: flex;
@@ -64,10 +85,17 @@ padding-left: 10px;
     width: 25px;
     height: 25px;
 }
-
-.botoninicio{
-    height: 50px;
+/*
+los tamaños originales de botones sin ser rem son:
     width: 70px;
+    height: 50px;
+______________
+   height: 3.125rem;
+    width: 4.375rem;
+*/
+.botoninicio{
+    height: 3.125rem;
+    width: 4.375rem;
     border-radius: 30px; 
     text-align: center;
     background-color: black;
@@ -78,10 +106,14 @@ padding-left: 10px;
 .botoninicio{
     cursor:pointer;
 }
-
+/*
+los tamaños originales de botones sin ser rem son:
+width: 70px;
+height: 50px;
+*/
 .boton{
-    height: 50px;
-    width: 70px;
+    height: 3.125rem;
+    width: 4.375rem;
     border-radius: 30px; 
     text-align: center;
     background-color: white;
@@ -96,25 +128,58 @@ padding-left: 10px;
 #content{
     display: flex;
     justify-content: center;
+    align-content: center;
     padding:0;
     margin: 0;
-
+    top: 80px;
+    position: relative;
 }
 
-
-.img_large{
+.columna{
+    display: flex;
+}
+/*
     width: 236px;
     height: 419px;
+    _____________
+    width: 14.75rem;
+    height: 26.18rem;
+    */
+.img_large{
+    width: 14.75rem;
+    height: 26.18rem;
     border-radius: 20px;
     object-fit: cover;
     object-position: center;
     margin: 0 8px 16px;
     padding: 0;
 }
-
-.img_small{
+/*
     width: 236px;
     height: 300px;
+    _________
+    width: 14.75rem;
+    height: 18.75rem;
+*/
+.img_small{
+    width: 14.75rem;
+    height: 18.75rem;
+    border-radius: 20px;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 8px 16px;
+    padding: 0;
+}
+/*
+    width: 236px;
+    height: 236px;
+    _____________
+    width: 14.75rem;
+    height: 14.75rem;
+*/
+.img_square{
+    width: 14.75rem;
+    height: 14.75rem;
     border-radius: 20px;
     object-fit: cover;
     object-position: center;
@@ -122,12 +187,33 @@ padding-left: 10px;
     padding: 0;
 }
 
-.img_square{
-    width: 236px;
-    height: 236px;
-    border-radius: 20px;
-    object-fit: cover;
-    object-position: center;
-    margin: 0 8px 16px;
-    padding: 0;
+@media screen and (max-width:1000px){
+    .search_bar{
+        width: 35%;
+    } 
+    .mobileHidden{
+        display:none;
+    }
+
 }
+
+@media screen and (max-width: 700px){
+    #navbar-pinterest{
+        visibility: hidden;
+    }
+    .navbarMovil{
+        visibility: visible;
+    }
+    .search_bar{
+        width: 25%;
+    } 
+    .columna{
+        flex-direction: column;
+    
+    }
+    .mobileHidden{
+        display:none;
+    }
+
+}
+
